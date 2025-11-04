@@ -10,6 +10,7 @@ Then delete the original non-chunked audio files to maintain a clean and consist
 dataset structure for later preprocessing and training steps.
 
 Author: Muhd Uwais
+Name: EchoID
 Project: Deep Voice Speaker Recognition CNN
 Purpose: Audio Chunk Creation
 License: MIT
@@ -250,6 +251,7 @@ class AudioChunker:
 
 
 # ---------------------------------------------------------
-# Run the script when called directly
+# Run module independently for testing
+# ---------------------------------------------------------
 if __name__ == "__main__":
     ...

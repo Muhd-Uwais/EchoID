@@ -17,6 +17,7 @@ Example:
     >>> mel_aug, label_aug = augmentor.run(mel, label)
 
 Author: Muhd Uwais
+Name: EchoID
 Project: Deep Voice Speaker Recognition CNN
 Purpose: Audio Augmentation
 License: MIT
@@ -350,3 +351,10 @@ class WaveformToMel:
         mel_batches = np.array(mel_batches)
         logger.info(f"✅ Mel conversion completed. Final shape: {mel_batches.shape}")
         return mel_batches, label
+
+
+# ---------------------------------------------------------
+# Run module independently for testing
+# ---------------------------------------------------------
+if __name__ == "__main__":
+    ...     

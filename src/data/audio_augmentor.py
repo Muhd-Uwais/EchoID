@@ -17,6 +17,7 @@ Notes:
 - Extendable for time/frequency masking, VTLP, or spectrogram augmentations.
 
 Author: Muhd Uwais
+Name: EchoID
 Project: Deep Voice Speaker Recognition CNN
 Purpose: Audio Augmentation
 License: MIT
@@ -273,5 +274,8 @@ class AudioAugmentor:
             raise e
 
 
+# ---------------------------------------------------------
+# Run module independently for testing
+# ---------------------------------------------------------
 if __name__ == "__main__":
     ...

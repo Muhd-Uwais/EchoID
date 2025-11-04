@@ -16,6 +16,7 @@ Notes
 - Reads configurations directly from `config.yaml` through `config_utils`.
 
 Author: Muhd Uwais
+Name: EchoID
 Project: Deep Voice Speaker Recognition CNN
 Purpose: CNN Model Builder
 License: MIT

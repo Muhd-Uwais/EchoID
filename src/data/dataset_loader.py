@@ -27,6 +27,7 @@ Notes:
 - logger is used instead of print statements for cleaner debugging.
 
 Author: Muhd Uwais
+Name: EchoID
 Project: Deep Voice Speaker Recognition CNN
 Purpose: Audio Dataset Loader
 License: MIT
@@ -206,16 +207,4 @@ class AudioDatasetLoader:
 # Run module independently for testing
 # ---------------------------------------------------------
 if "__main__" == __name__:
-    file_path = "C:/voice-speaker-binary-classifier/data/"
-    logger.info("Starting dataset loading process...")
-
-    dataset_loader = AudioDatasetLoader(
-        file_path,
-        sr=16000
-    )
-
-    x_train, x_test, y_train, y_test = dataset_loader.load_dataset()
-
-    logger.info("Dataset loading completed successfully!")
-    logger.info(f"x_train: {x_train.shape}, y_train: {y_train.shape}")
-    logger.info(f"x_test: {x_test.shape}, y_test: {y_test.shape}")
+    ...
