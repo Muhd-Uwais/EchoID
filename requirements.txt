@@ -1,0 +1,6 @@
+keras==3.11.3
+librosa==0.11.0
+numpy==2.3.4
+ruamel.base==1.0.0
+scikit_learn==1.4.2
+soundfile==0.13.1
