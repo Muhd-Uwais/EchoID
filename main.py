@@ -83,11 +83,11 @@ def main():
 
     # Display final performance report
     print("\n🏆 Final Evaluation Metrics:")
-    print(f"   • Accuracy:   {metrics['accuracy']:.4f}")
-    print(f"   • Precision:  {metrics['precision']:.4f}")
-    print(f"   • Recall:     {metrics['recall']:.4f}")
-    print(f"   • F1-Score:   {metrics['f1_score']:.4f}")
-    print(f"   • ROC-AUC:    {metrics['roc_auc']:.4f}")
+    print(f"   • Accuracy:   {metrics['accuracy']}")
+    print(f"   • Precision:  {metrics['precision']}")
+    print(f"   • Recall:     {metrics['recall']}")
+    print(f"   • F1-Score:   {metrics['f1_score']}")
+    print(f"   • ROC-AUC:    {metrics['roc_auc']}")
 
 
 # ---------------------------------------------------------
