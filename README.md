@@ -33,7 +33,7 @@
   - [3. Training the Model](#3-training-the-model)
   - [4. Real-Time Inference](#4-real-time-inference)
 - [Project Structure](#-project-structure)
-- [Configuration](#-configuration)
+- [Configuration](#%EF%B8%8F-configuration)
 - [Contributing](#-contributing)
 - [Future Roadmap](#-future-roadmap)
 - [License](#-license)
@@ -205,17 +205,23 @@ ruamel.base==0.18.16   # YAML configuration
 
 ### 1. Data Preparation
 
-Organize your audio data in the following structure:
+Collect your raw voice recordings (long files, e.g., 1 minute or more). 
 
+> [!IMPORTANT]
+> **Input Format Requirements:**
+> 1. **File Type:** Currently, the system only supports **`.m4a`** files for the initial chunking process. (Support for .mp3/.wav coming in v1.1)
+> 2. **Naming Convention:** You **MUST** rename your source files sequentially as `Voice (1).m4a`, `Voice (2).m4a`, etc.
+
+Organize them in the `data/` directory:
 ```
 data/
 ├── speaker0/          # Non-target speaker samples (negative class)
-│   ├── audio_001.wav
-│   ├── audio_002.wav
+│   ├── Voice (1).m4a
+│   ├── Voice (2).m4a
 │   └── ...
 └── speaker1/          # Target speaker samples (positive class)
-    ├── audio_001.wav
-    ├── audio_002.wav
+    ├── Voice (1).m4a
+    ├── Voice (2).m4a
     └── ...
 ```
 
@@ -223,16 +229,28 @@ data/
 
 ---
 
+
 ### 2. Audio Chunking
 
-Split long audio files into 3-second chunks. The arguments define the speaker0 file counts and speaker1 file counts (e.g., 21 files for speaker0 and 23 files for speaker1):
+Run the chunker to split your long `.m4a` recordings into uniform 3-second `.wav` segments suitable for training.
+
+**Command Syntax:**
+`python chunker.py [speaker0_file_count] [speaker1_file_count]`
+
+**Example:**
+If you have `Voice (1).m4a` to `Voice (21).m4a` in speaker0 (21 files) and `Voice (1).m4a` to `Voice (23).m4a` in speaker1 (23 files):
 
 ```bash
 # Usage: python chunker.py [speaker0 file count] [speaker1 file count]
 python chunker.py 21 23
 ```
 
-**Important**: After chunking, move all generated `.wav` files from the `chunks/` subdirectories into their respective root speaker directories (`speaker0/`, `speaker1/`), then delete the original long recordings and subdirectories.
+**Post-Chunking Step:**
+The script generates a `chunks/` folder inside each speaker directory containing the processed audio. You must organize these files before training:
+
+1.  **Move Files**: Transfer all generated `.wav` files from `data/speaker0/chunks/` directly into `data/speaker0/`. Do the same for `speaker1`.
+2.  **Clean Up**: Delete the original `.m4a` files and the now-empty `chunks/` subdirectories.
+    *   *Note: The training pipeline requires only the `.wav` files to be present in the root speaker folders to function correctly.*
 
 ---
 
